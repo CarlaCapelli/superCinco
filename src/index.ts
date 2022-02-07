@@ -34,55 +34,52 @@ console.log(
     " $" +
     precioTres
 );
-
-cantidad = Number(prompt("que cantidad desea comprar?"));
-
-while (cantidad > 0) {
-  compra = String(prompt("que producto desea comprar?"));
-  if (compra === prodUno && cantidad <= stockUno) {
-    if (stockUno > 0 && precioUno > 0) {
-      stockUno = stockUno - 1;
-      console.log(
-        "el precio de " +
-          compra +
-          "es de $" +
-          precioUno +
-          " y el stock es de " +
-          stockUno
-      );
-    } else {
-      console.log("el stock o precio ingresados son menores o igual a cero");
-    }
-  } else if (compra === prodDos && cantidad <= stockDos) {
-    if (stockDos > 0 && precioDos > 0) {
-      stockDos = stockDos - 1;
-      console.log(
-        "el precio de " +
-          compra +
-          " es de $" +
-          precioDos +
-          " y el stock es de " +
-          stockDos
-      );
-    } else {
-      console.log("el stock o precio ingresados son menores o igual a cero");
-    }
-  } else if (compra === prodTres && cantidad <= stockTres) {
-    if (stockTres > 0 && precioTres > 0) {
-      stockTres = stockTres - 1;
-      console.log(
-        "el precio de " +
-          compra +
-          "  es de $" +
-          precioTres +
-          " y el stock es de " +
-          stockTres
-      );
-    } else {
-      console.log("el stock o precio ingresados son menores o igual a cero");
-    }
+while (cantidad <= 0) {
+  cantidad = Number(prompt("que cantidad desea comprar?"));
+}
+compra = String(prompt("que producto desea comprar?"));
+if (compra === prodUno && cantidad <= stockUno) {
+  if (stockUno > 0 && precioUno > 0) {
+    stockUno = stockUno - cantidad;
+    console.log(
+      "el precio de " +
+        compra +
+        "es de $" +
+        precioUno +
+        " y el stock es de " +
+        stockUno
+    );
   } else {
-    console.log("no tenemos ese producto");
+    console.log("el stock o precio ingresados son menores o igual a cero");
   }
-  cantidad = cantidad - 1;
+} else if (compra === prodDos && cantidad <= stockDos) {
+  if (stockDos > 0 && precioDos > 0) {
+    stockDos = stockDos - cantidad;
+    console.log(
+      "el precio de " +
+        compra +
+        " es de $" +
+        precioDos +
+        " y el stock es de " +
+        stockDos
+    );
+  } else {
+    console.log("el stock o precio ingresados son menores o igual a cero");
+  }
+} else if (compra === prodTres && cantidad <= stockTres) {
+  if (stockTres > 0 && precioTres > 0) {
+    stockTres = stockTres - cantidad;
+    console.log(
+      "el precio de " +
+        compra +
+        "  es de $" +
+        precioTres +
+        " y el stock es de " +
+        stockTres
+    );
+  } else {
+    console.log("el stock o precio ingresados son menores o igual a cero");
+  }
+} else {
+  console.log("no tenemos ese producto");
 }
